@@ -4,7 +4,7 @@ import urllib.parse
 
 st.set_page_config(page_title="🌍 AI Translator & Is-barasho", layout="centered")
 
-st.title("🌍 AI Translator Tool & Is-barasho")
+st.title("Kaliga isbar")
 st.write("Ku qor erayo/jumlado, dooro luqadda aad rabto, oo turjum. Sidoo kale, dadka kale la baro!")
 
 # Geli qoraalka turjumaada
