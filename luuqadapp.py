@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 import urllib.parse
 
-st.title("🌍 AI Translator Tool")
+st.title("kaliga is bar")
 st.write("Ku qor erayo ama jumlado, dooro luqadda aad rabto, oo riix Turjum!")
 
 # Geli qoraalka
