@@ -39,27 +39,33 @@ if st.button("Turjum"):
 
 # 🔗 Qaybta Is-barasho (Community)
 st.header("👥 Qaybta Is-barasho")
-st.write("Ku qor magacaaga iyo luqadda aad ku hadasho si dadka kale ay kuula xiriiraan.")
+st.write("Ku qor magacaaga, wadanka aad joogto, iyo WhatsApp number si dadka kale ula xiriiraan.")
 
 # Foomka is-barasho
 with st.form("isbarasho_form"):
     name = st.text_input("Magacaaga:")
+    country = st.text_input("Wadanka aad joogto:")
+    whatsapp = st.text_input("WhatsApp Number:")
     my_lang = st.selectbox("Luqadda aad ku hadasho:", list(languages.keys()))
     submitted = st.form_submit_button("Ku dar liiska")
 
-    if submitted and name.strip():
+    if submitted and name.strip() and country.strip() and whatsapp.strip():
         # Ku keydi liiska session_state
         if "community" not in st.session_state:
             st.session_state.community = []
-        st.session_state.community.append((name, my_lang))
-        st.success(f"**{name}** oo ku hadla **{my_lang}** waa la diiwaan geliyay!")
+        st.session_state.community.append({
+            'name': name,
+            'country': country,
+            'whatsapp': whatsapp,
+            'lang': my_lang
+        })
+        st.success(f"**{name}** oo jooga **{country}** (WhatsApp: {whatsapp}) ayaa la diiwaan geliyay!")
 
 # Muuji dadka is-barashada
 if "community" in st.session_state and st.session_state.community:
     st.subheader("📜 Dadka Ku Jira Liiska:")
     for person in st.session_state.community:
-        st.write(f"- {person[0]}: {person[1]}")
-
+        st.markdown(f"- **{person['name']}** ({person['country']}) | 📞 WhatsApp: `{person['whatsapp']}` | 💬 Luqad: {person['lang']}")
 else:
     st.info("Liiska weli waa madhan. Noqo qofka ugu horeeya!")
 
